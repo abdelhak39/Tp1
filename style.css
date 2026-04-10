@@ -1,0 +1,19 @@
+body {
+    font-family: Arial;
+    background-color: #f4f4f4;
+    margin: 50px;
+}
+
+h1 {
+    color: #b11919;
+}
+
+h2 {
+    color: #9c2b2b;
+}
+
+ul {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+}
