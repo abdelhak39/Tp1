@@ -1,16 +1,32 @@
-let maDiv = document.createElement("div");
-document.body.appendChild(maDiv);
+let form = document.getElementById("taskForm");
+let input = document.getElementById("taskInput");
+let taskList = document.getElementById("taskList");
 
-let paragraphe = document.createElement("p");
-paragraphe.textContent = "Ceci est un paragraphe";
-maDiv.appendChild(paragraphe);
+form.addEventListener("submit", function (event) {
+    event.preventDefault();
 
-paragraphe.textContent = "Le texte a été modifié";
+    let taskText = input.value;
 
-paragraphe.style.backgroundColor = "lightblue";
-paragraphe.style.textAlign = "center";
-paragraphe.style.padding = "10px";
+    let li = document.createElement("li");
+    li.textContent = taskText;
 
-maDiv.addEventListener("click", function () {
-    paragraphe.textContent = "Un clic a été détecté";
+    let completeBtn = document.createElement("button");
+    completeBtn.textContent = "Accomplie";
+
+    completeBtn.addEventListener("click", function () {
+        li.classList.toggle("completed");
+    });
+
+    let deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "Supprimer";
+
+    deleteBtn.addEventListener("click", function () {
+        taskList.removeChild(li);
+    });
+
+    li.appendChild(completeBtn);
+    li.appendChild(deleteBtn);
+    taskList.appendChild(li);
+
+    input.value = "";
 });
